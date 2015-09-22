@@ -1,4 +1,4 @@
-# This is a Dockerfile to build a opensuse image which run mariadb
+# This is a Dockerfile to build a base ubuntu image
 FROM ubuntu:14.04
 MAINTAINER Mengz You <mengz.you@outlook.com>
 
@@ -8,8 +8,7 @@ ENV OS_VERSION_ID "14.04"
 ENV OS_VERSION "14.04.3 LTS, Trusty Tahr"
 
 # Update and install tool packages
-RUN apt-get update \
-  && apt-get install -y curl \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get clean
 
 # Change the timezone to PRC
